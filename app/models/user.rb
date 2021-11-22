@@ -5,6 +5,11 @@ class User < ApplicationRecord
   #password and password_confirmation as string (only virtual)
   has_secure_password  
 
-  validates :email, presence:true
+  has_many :twitter_accounts
+  has_many :tweets
+
+
+
+  validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}
   
 end

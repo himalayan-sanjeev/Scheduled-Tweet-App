@@ -5,14 +5,17 @@ class RegistrationsController <ApplicationController
 
   def create
     # render plain: "Thanks" #it just return plain text display "Thanks"
+    # render plain: params #renders all params
+
     # render plain: params[:user] #renders user params of submitted user entries
     # params
     # params[:user]
     @user=User.new(user_params)
     if @user.save
-      redirect_to root_path, notice: "Successfully created accounted"
+      session[:user_id]=@user.id
+      redirect_to root_path, notice: "Successfully created account"
     else
-      #flash[:alert]="Something was wrong"
+      # flash[:alert]="Something was wrong"
       render :new 
     end 
   end

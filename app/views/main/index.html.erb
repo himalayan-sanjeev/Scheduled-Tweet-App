@@ -1,3 +1,19 @@
 <div class="d-flex align-items-center justify-content-center">
     <h2>Welcome to the Scheduled Tweet </h2>
 </div>
+
+
+ <%= button_to "Connect Twitter", "/auth/twitter", method: :post, class: "btn btn-primary" %>
+
+
+
+<%
+=begin%>
+ <% if Current.user %>
+ Logged In as: <%= Current.user.email %>
+
+ 
+ <%= link_to "Logout", logout_path, method: :delete %> 
+ <%= button_to "Logout", logout_path, method: :delete %>
+<%
+=end%>
